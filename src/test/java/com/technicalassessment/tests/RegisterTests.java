@@ -49,6 +49,36 @@ public class RegisterTests extends BaseTest {
         Assert.assertEquals(errorMessage, "An error occurred during registration. Please try again.");
     }
 
+    @Test
+    public void testEmptyUsername() {
+        registerPage.enterUsername("");
+        registerPage.enterPassword("Mubeen1234");
+        registerPage.enterConfirmPassword("Mubeen1234");
+        LoginPage loginPage = registerPage.clickRegisterButton();
+        String errorMessage = registerPage.getErrorMessage();
+        Assert.assertEquals(errorMessage, "All fields are required.");
+    }
+
+    @Test
+    public void testEmptyPassword() {
+        registerPage.enterUsername("Mubeen");
+        registerPage.enterPassword("");
+        registerPage.enterConfirmPassword("");
+        LoginPage loginPage = registerPage.clickRegisterButton();
+        String errorMessage = registerPage.getErrorMessage();
+        Assert.assertEquals(errorMessage, "All fields are required.");
+    }
+
+    @Test
+    public void testEmptyUsernameAndPassword() {
+        registerPage.enterUsername("");
+        registerPage.enterPassword("");
+        registerPage.enterConfirmPassword("");
+        LoginPage loginPage = registerPage.clickRegisterButton();
+        String errorMessage = registerPage.getErrorMessage();
+        Assert.assertEquals(errorMessage, "All fields are required.");
+    }
+
 
     private String generateUniqueUsername() {
         return "Mubeen" + System.currentTimeMillis();

@@ -38,4 +38,31 @@ public class LoginTests extends BaseTest {
         String errorMessage = loginPage.getErrorMessage();
         Assert.assertEquals(errorMessage, "Your password is invalid!");
     }
+
+    @Test
+    public void testEmptyUsername() {
+        loginPage.enterUsername("");
+        loginPage.enterPassword("SuperSecretPassword!");
+        loginPage.clickLoginButton();
+        String errorMessage = loginPage.getErrorMessage();
+        Assert.assertEquals(errorMessage, "Your username is invalid!");
+    }
+
+    @Test
+    public void testEmptyPassword() {
+        loginPage.enterUsername("practice");
+        loginPage.enterPassword("");
+        loginPage.clickLoginButton();
+        String errorMessage = loginPage.getErrorMessage();
+        Assert.assertEquals(errorMessage, "Your password is invalid!");
+    }
+
+    @Test
+    public void testEmptyUsernameAndPassword() {
+        loginPage.enterUsername("");
+        loginPage.enterPassword("");
+        loginPage.clickLoginButton();
+        String errorMessage = loginPage.getErrorMessage();
+        Assert.assertEquals(errorMessage, "Your username is invalid!");
+    }
 }
