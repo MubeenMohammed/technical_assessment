@@ -62,8 +62,8 @@ To manually test the login and registration functionality of a web application a
 
 ## 🔍 Test Summary
 
-- **Total Test Cases:** 6
-- **Passed:** 6
+- **Total Test Cases:** 12
+- **Passed:** 12
 - **Failed:** 0
 - **Blocked:** 0
 
