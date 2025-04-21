@@ -2,6 +2,7 @@ package com.technicalassessment.pages;
 
 import org.openqa.selenium.By;
 
+import static utilities.JavaScriptUtility.clickJS;
 import static utilities.JavaScriptUtility.scrollToElement;
 
 public class RegisterPage extends BasePage{
@@ -12,17 +13,20 @@ public class RegisterPage extends BasePage{
     private final By errorMessage = By.xpath("//div[@id='flash-message']//b");
 
     public void enterUsername(String username) {
+        scrollToElement(usernameField);
         set(usernameField, username);
     }
     public void enterPassword(String password) {
+        scrollToElement(passwordField);
         set(passwordField, password);
     }
     public void enterConfirmPassword(String confirmPassword) {
+        scrollToElement(confirmPasswordField);
         set(confirmPasswordField, confirmPassword);
     }
     public LoginPage clickRegisterButton() {
         scrollToElement(registerButton);
-        click(registerButton);
+        clickJS(registerButton);
         return new LoginPage();
     }
     public String getErrorMessage() {

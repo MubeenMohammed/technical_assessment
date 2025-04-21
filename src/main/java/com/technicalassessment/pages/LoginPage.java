@@ -3,6 +3,7 @@ package com.technicalassessment.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import static utilities.JavaScriptUtility.clickJS;
 import static utilities.JavaScriptUtility.scrollToElement;
 
 public class LoginPage extends BasePage {
@@ -23,7 +24,7 @@ public class LoginPage extends BasePage {
 
     public SecurePage clickLoginButton() {
         scrollToElement(loginButton);
-        click(loginButton);
+        clickJS(loginButton);
         return new SecurePage();
     }
 

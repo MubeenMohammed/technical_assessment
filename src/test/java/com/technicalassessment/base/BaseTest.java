@@ -2,6 +2,7 @@ package com.technicalassessment.base;
 
 import com.technicalassessment.pages.BasePage;
 import com.technicalassessment.pages.LoginPage;
+import com.technicalassessment.pages.RegisterPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -14,6 +15,7 @@ public class BaseTest {
     protected WebDriver driver;
     protected BasePage basePage;
     protected LoginPage loginPage;
+    protected RegisterPage registerPage;
     private final String loginUrl = "https://practice.expandtesting.com/login";
     private final String registerUrl = "https://practice.expandtesting.com/register";
 
@@ -26,6 +28,7 @@ public class BaseTest {
         BasePage.setDriver(driver);
         setUtilityDriver();
         loginPage = new LoginPage();
+        registerPage = new RegisterPage();
     }
 
     @AfterClass
@@ -33,9 +36,5 @@ public class BaseTest {
         if (driver != null) {
             driver.quit();
         }
-    }
-
-    public void navigateToRegisterPage() {
-        driver.get(registerUrl);
     }
 }

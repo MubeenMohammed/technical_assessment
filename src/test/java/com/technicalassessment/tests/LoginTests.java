@@ -18,7 +18,7 @@ public class LoginTests extends BaseTest {
         SecurePage securePage = loginPage.
                 login("practice", "SuperSecretPassword!");
         Assert.assertTrue(securePage.isSecurePageDisplayed());
-
+        Assert.assertEquals(securePage.getSecurePageText(), "Secure Area page for Automation Testing Practice");
     }
 
     @Test
