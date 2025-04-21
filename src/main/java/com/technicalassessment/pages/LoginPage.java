@@ -3,6 +3,8 @@ package com.technicalassessment.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import static utilities.JavaScriptUtility.scrollToElement;
+
 public class LoginPage extends BasePage {
     private final By usernameField = By.id("username");
     private final By passwordField = By.id("password");
@@ -10,14 +12,17 @@ public class LoginPage extends BasePage {
     private final By ErrorMessage = By.xpath("//div[@id='flash']//b");
 
     public void enterUsername(String username) {
+        scrollToElement(usernameField);
         set(usernameField, username);
     }
 
     public void enterPassword(String password) {
+        scrollToElement(passwordField);
         set(passwordField, password);
     }
 
     public SecurePage clickLoginButton() {
+        scrollToElement(loginButton);
         click(loginButton);
         return new SecurePage();
     }

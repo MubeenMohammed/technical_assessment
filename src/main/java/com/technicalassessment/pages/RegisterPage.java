@@ -2,6 +2,8 @@ package com.technicalassessment.pages;
 
 import org.openqa.selenium.By;
 
+import static utilities.JavaScriptUtility.scrollToElement;
+
 public class RegisterPage extends BasePage{
     private final By usernameField = By.id("username");
     private final By passwordField = By.id("password");
@@ -19,7 +21,9 @@ public class RegisterPage extends BasePage{
         set(confirmPasswordField, confirmPassword);
     }
     public LoginPage clickRegisterButton() {
+        scrollToElement(registerButton);
         click(registerButton);
+        return new LoginPage();
     }
     public String getErrorMessage() {
         return find(errorMessage).getText();
